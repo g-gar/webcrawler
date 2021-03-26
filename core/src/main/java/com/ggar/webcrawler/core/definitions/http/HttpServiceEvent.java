@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.service.http;
+package com.ggar.webcrawler.core.definitions.http;
 
 import java.net.URL;
 import java.util.Map;

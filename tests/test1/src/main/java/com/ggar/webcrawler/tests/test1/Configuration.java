@@ -9,7 +9,7 @@ import java.util.Collections;
 public class Configuration {
 
 	public static final Long SLEEP_DURATION = 500L;
-	public static final String USER_AGENT = "Funny WebCrawling service (maybe Google's search engine v2)";
+	public static final String USER_AGENT = "Funny WebCrawling definitions (maybe Google's search engine v2)";
 	public static final Integer THREAD_POOL_SIZE = 10;
 
 	public static final Collection<URL> URLS = Collections.unmodifiableCollection(new ArrayList<>(){{

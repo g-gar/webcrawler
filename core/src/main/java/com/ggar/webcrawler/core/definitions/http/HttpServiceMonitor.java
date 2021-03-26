@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.service.http;
+package com.ggar.webcrawler.core.definitions.http;
 
 import java.util.Collection;
 
@@ -13,7 +13,7 @@ public interface HttpServiceMonitor {
 	/**
 	 * @param start Time in milliseconds where to start retrieving registered events. Inclusive.
 	 * @param end Time in milliseconds where to start retrieving registered events. Exclusive.
-	 * @return A java.util.Collection containing all registered events associated to a certain time window
+	 * @return A java.utils.Collection containing all registered events associated to a certain time window
 	 */
 	Collection<HttpServiceEvent> getRegisteredEvents(Long start, Long end);
 

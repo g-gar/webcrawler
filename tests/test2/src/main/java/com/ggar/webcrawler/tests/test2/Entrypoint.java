@@ -1,15 +1,15 @@
 package com.ggar.webcrawler.tests.test2;
 
-import com.ggar.webcrawler.core.Crawler;
-import com.ggar.webcrawler.core.logic.BasicBlacklistService;
-import com.ggar.webcrawler.core.logic.BasicHttpServiceMonitor;
-import com.ggar.webcrawler.core.logic.BasicRepService;
-import com.ggar.webcrawler.core.service.blacklist.BlacklistService;
-import com.ggar.webcrawler.core.service.http.HttpService;
-import com.ggar.webcrawler.core.service.http.HttpServiceEvent;
-import com.ggar.webcrawler.core.service.http.HttpServiceMonitor;
-import com.ggar.webcrawler.core.service.http.Interceptor;
-import com.ggar.webcrawler.core.service.rep.RepService;
+import com.ggar.webcrawler.core.implementations.BasicCrawler;
+import com.ggar.webcrawler.core.implementations.BasicBlacklistService;
+import com.ggar.webcrawler.core.implementations.BasicHttpServiceMonitor;
+import com.ggar.webcrawler.core.implementations.BasicRepService;
+import com.ggar.webcrawler.core.definitions.blacklist.BlacklistService;
+import com.ggar.webcrawler.core.definitions.http.HttpService;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceEvent;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceMonitor;
+import com.ggar.webcrawler.core.definitions.http.Interceptor;
+import com.ggar.webcrawler.core.definitions.rep.RepService;
 import com.ggar.webcrawler.http.playwright.PlaywrightHttpService;
 import com.microsoft.playwright.Browser;
 import com.microsoft.playwright.Page;
@@ -35,7 +35,7 @@ public class Entrypoint {
 
 	public static void main(String[] args) throws MalformedURLException {
 
-		Crawler crawler = new Crawler(
+		BasicCrawler crawler = new BasicCrawler(
 			() -> new BasicPlaywrightCrawlerTask(httpService, interceptors),
 			threadPoolExecutor,
 			blacklistService,
@@ -52,13 +52,13 @@ public class Entrypoint {
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				logger.info(String.format("Queue size: %s, Active workers: %s", crawler.getPendingTasks(), crawler.getActiveThreadsCount()));
+				logger.info(String.format("Queue size: %s, Active workers: %s", crawler.getPendingTasksCount(), crawler.getActiveThreadsCount()));
 			}
 		}, 0, 100);
 		t.schedule(new TimerTask() {
 			@Override
 			public void run() {
-				if (crawler.getActiveThreadsCount() == 0 && crawler.getPendingTasks() == 0) {
+				if (crawler.getActiveThreadsCount() == 0 && crawler.getPendingTasksCount() == 0) {
 					crawler.stop();
 
 					Entrypoint.processRegisteredHttpEvents(httpServiceMonitor.getRegisteredEvents());

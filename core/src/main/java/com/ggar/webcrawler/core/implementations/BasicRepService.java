@@ -1,8 +1,8 @@
-package com.ggar.webcrawler.core.logic;
+package com.ggar.webcrawler.core.implementations;
 
-import com.ggar.webcrawler.core.service.http.HttpService;
-import com.ggar.webcrawler.core.service.rep.RepService;
-import com.ggar.webcrawler.core.util.UrlUtils;
+import com.ggar.webcrawler.core.definitions.http.HttpService;
+import com.ggar.webcrawler.core.definitions.rep.RepService;
+import com.ggar.webcrawler.core.utils.UrlUtils;
 import com.google.search.robotstxt.Matcher;
 import com.google.search.robotstxt.Parser;
 import com.google.search.robotstxt.RobotsParseHandler;

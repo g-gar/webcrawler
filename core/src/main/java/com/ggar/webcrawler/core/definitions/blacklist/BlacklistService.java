@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.service.blacklist;
+package com.ggar.webcrawler.core.definitions.blacklist;
 
 import java.util.regex.Pattern;
 

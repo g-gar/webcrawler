@@ -1,17 +1,14 @@
 package com.ggar.webcrawler.http.jsoup;
 
-import com.ggar.webcrawler.core.model.LambdaWithException;
-import com.ggar.webcrawler.core.service.blacklist.BlacklistService;
-import com.ggar.webcrawler.core.service.http.HttpService;
-import com.ggar.webcrawler.core.service.http.HttpServiceEvent;
-import com.ggar.webcrawler.core.service.http.HttpServiceMonitor;
-import com.ggar.webcrawler.core.service.http.Interceptor;
-import com.ggar.webcrawler.core.service.rep.RepService;
+import com.ggar.webcrawler.core.definitions.http.LambdaWithException;
+import com.ggar.webcrawler.core.definitions.http.HttpService;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceEvent;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceMonitor;
+import com.ggar.webcrawler.core.definitions.http.Interceptor;
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.HashSet;

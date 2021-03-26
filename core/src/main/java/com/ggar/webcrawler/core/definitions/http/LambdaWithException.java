@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.model;
+package com.ggar.webcrawler.core.definitions.http;
 
 public interface LambdaWithException<T> {
 

@@ -1,6 +1,6 @@
-package com.ggar.webcrawler.core.logic;
+package com.ggar.webcrawler.core.implementations;
 
-import com.ggar.webcrawler.core.service.blacklist.BlacklistService;
+import com.ggar.webcrawler.core.definitions.blacklist.BlacklistService;
 
 import java.util.Collection;
 import java.util.regex.Pattern;

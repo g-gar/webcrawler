@@ -1,7 +1,7 @@
-package com.ggar.webcrawler.core.logic;
+package com.ggar.webcrawler.core.implementations;
 
-import com.ggar.webcrawler.core.service.http.HttpServiceMonitor;
-import com.ggar.webcrawler.core.service.http.HttpServiceEvent;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceMonitor;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceEvent;
 
 import java.util.*;
 import java.util.stream.Collectors;

@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.logic;
+package com.ggar.webcrawler.core.implementations;
 
 import java.net.URL;
 import java.util.ArrayList;

@@ -1,8 +1,9 @@
-package com.ggar.webcrawler.core;
+package com.ggar.webcrawler.core.implementations;
 
-import com.ggar.webcrawler.core.service.blacklist.BlacklistService;
-import com.ggar.webcrawler.core.model.CrawlerTask;
-import com.ggar.webcrawler.core.service.rep.RepService;
+import com.ggar.webcrawler.core.definitions.crawler.Crawler;
+import com.ggar.webcrawler.core.definitions.blacklist.BlacklistService;
+import com.ggar.webcrawler.core.definitions.crawler.CrawlerTask;
+import com.ggar.webcrawler.core.definitions.rep.RepService;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
@@ -16,7 +17,7 @@ import java.util.function.Supplier;
 import java.util.logging.Logger;
 
 @EqualsAndHashCode
-public class Crawler {
+public class BasicCrawler implements Crawler {
 
 	@Getter private final Supplier<CrawlerTask> workerGenerator;
 	private final ThreadPoolExecutor threadPoolExecutor;
@@ -27,14 +28,14 @@ public class Crawler {
 	private final Logger logger;
 	private final Map<String, URL> collectedUrls;
 
-	public Crawler(Supplier<CrawlerTask> workerGenerator, ThreadPoolExecutor threadPoolExecutor, BlacklistService<URL> blacklistService, RepService repService, Long sleepDuration, String userAgent) {
+	public BasicCrawler(Supplier<CrawlerTask> workerGenerator, ThreadPoolExecutor threadPoolExecutor, BlacklistService<URL> blacklistService, RepService repService, Long sleepDuration, String userAgent) {
 		this.workerGenerator = workerGenerator;
 		this.threadPoolExecutor = threadPoolExecutor;
 		this.blacklistService = blacklistService;
 		this.repService = repService;
 		this.sleepDuration = sleepDuration;
 		this.userAgent = userAgent;
-		this.logger = Logger.getLogger(Crawler.class.getName());
+		this.logger = Logger.getLogger(BasicCrawler.class.getName());
 		this.collectedUrls = new ConcurrentHashMap<>();
 	}
 
@@ -49,7 +50,7 @@ public class Crawler {
 						Collection<URL> urls = task.apply(url);
 						for (URL childUrl : urls) {
 							if (!collectedUrls.containsKey(childUrl)) { // to avoid infinite loop
-								Crawler.this.process(childUrl);
+								BasicCrawler.this.process(childUrl);
 							}
 						}
 					});
@@ -80,7 +81,7 @@ public class Crawler {
 		return this.collectedUrls.values();
 	}
 
-	public synchronized Integer getPendingTasks() {
+	public synchronized Integer getPendingTasksCount() {
 		return threadPoolExecutor.getQueue().size();
 	}
 

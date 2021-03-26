@@ -1,4 +1,4 @@
-package com.ggar.webcrawler.core.util;
+package com.ggar.webcrawler.core.utils;
 
 import java.net.MalformedURLException;
 import java.net.URL;

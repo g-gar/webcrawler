@@ -1,6 +1,6 @@
 package com.ggar.webcrawler.http.jsoup;
 
-import com.ggar.webcrawler.core.service.http.HttpServiceEvent;
+import com.ggar.webcrawler.core.definitions.http.HttpServiceEvent;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;

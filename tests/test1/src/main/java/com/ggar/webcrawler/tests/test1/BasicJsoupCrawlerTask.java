@@ -1,12 +1,11 @@
 package com.ggar.webcrawler.tests.test1;
 
-import com.ggar.webcrawler.core.model.CrawlerTask;
-import com.ggar.webcrawler.core.service.http.HttpService;
-import com.ggar.webcrawler.core.service.http.Interceptor;
-import com.ggar.webcrawler.core.util.UrlUtils;
+import com.ggar.webcrawler.core.definitions.crawler.CrawlerTask;
+import com.ggar.webcrawler.core.definitions.http.HttpService;
+import com.ggar.webcrawler.core.definitions.http.Interceptor;
+import com.ggar.webcrawler.core.utils.UrlUtils;
 import org.jsoup.nodes.Document;
 
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Collection;
 import java.util.Collections;

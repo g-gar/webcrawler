@@ -1,6 +1,5 @@
-package com.ggar.webcrawler.core.service.rep;
+package com.ggar.webcrawler.core.definitions.rep;
 
-import com.ggar.webcrawler.core.service.http.HttpService;
 import com.google.search.robotstxt.Matcher;
 
 import java.net.URL;
